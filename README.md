@@ -45,21 +45,21 @@ We solve the following multi-period CVaR-constrained portfolio optimization:
 ```
 
 where:
-- `w_t`: portfolio weights at time t
-- `μ_t`: expected return vector
-- `λ_tc`: transaction cost penalty
-- `β`: CVaR risk budget
-- `α`: CVaR confidence level (default: 95%)
+- $w_t$: portfolio weights at time $t$
+- $\mu_t$: expected return vector
+- $\lambda_{tc}$: transaction cost penalty
+- $\beta$: CVaR risk budget
+- $\alpha$: CVaR confidence level (default: 95%)
 
 ### CVaR Reformulation
 
-For scenarios `{r_t^(s)}`, CVaR is reformulated as a linear program:
+For scenarios $\{r_t^{(s)}\}_{s=1}^S$, CVaR is reformulated as a linear program:
 
 ```math
 \text{CVaR}_\alpha(w_t) = \min_{\nu, u} \left\{ \nu + \frac{1}{(1-\alpha)S} \sum_{s=1}^{S} u_s \right\}
 ```
 
-subject to `u_s ≥ -w_t^T r_t^(s) - ν` and `u_s ≥ 0`.
+subject to $u_s \geq -w_t^\top r_t^{(s)} - \nu$ and $u_s \geq 0$.
 
 ### ADMM Decomposition
 
