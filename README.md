@@ -66,18 +66,21 @@ subject to `u_s ≥ -w_t^T r_t^(s) - ν` and `u_s ≥ 0`.
 We decompose the problem using consensus variables:
 
 **w-update (parallel):**
-```
-w_t^{k+1} = (μ_t + y_t^k + ρz_t^k + λ_tc w_{t-1}^{k+1}) / (λ_tc + ρ)
+
+```math
+w_t^{k+1} = \frac{\mu_t + y_t^k + \rho z_t^k + \lambda_{tc} w_{t-1}^{k+1}}{\lambda_{tc} + \rho}
 ```
 
 **z-update (projection onto constraint set):**
-```
-z_t^{k+1} = Π_{C_t}(w_t^{k+1} + y_t^k/ρ)
+
+```math
+z_t^{k+1} = \Pi_{C_t}\left(w_t^{k+1} + \frac{y_t^k}{\rho}\right)
 ```
 
 **Dual update:**
-```
-y_t^{k+1} = y_t^k + ρ(w_t^{k+1} - z_t^{k+1})
+
+```math
+y_t^{k+1} = y_t^k + \rho(w_t^{k+1} - z_t^{k+1})
 ```
 
 ## Sensitivity Analysis
